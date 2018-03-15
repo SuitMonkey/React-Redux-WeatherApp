@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 class WeatherList extends Component {
 
     renderWeather(cityData) {
+        const name = cityData.city.name;
+
         return (
-            <tr>
+            <tr key={name}>
                 <td>
-                    {cityData.city.name}
+                    {name}
                 </td>
             </tr>
         );
@@ -35,7 +37,6 @@ class WeatherList extends Component {
 function mapStateToProps(state) {
     //Using weather because we explicitly use it like that
     // in index.js from reducers
-    console.log(state.weather, "!!!!!!");
     return { weather: state.weather };
 }
 

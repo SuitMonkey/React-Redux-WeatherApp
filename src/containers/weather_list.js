@@ -3,17 +3,19 @@ import { connect } from 'react-redux';
 
 class WeatherList extends Component {
 
-    renderWeather(cityData){
-        <tr>
-            <td>
-                {cityData.city.name}
-            </td>
-        </tr>
+    renderWeather(cityData) {
+        return (
+            <tr>
+                <td>
+                    {cityData.city.name}
+                </td>
+            </tr>
+        );
     }
 
     render() {
         return (
-            <table className=" table table-hover">
+            <table className="table table-hover">
                 <thead>
                     <tr>
                         <th>City</th>
@@ -23,16 +25,17 @@ class WeatherList extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    { this.props.weather.map(this.renderWeather)}
+                    {this.props.weather.map(this.renderWeather)}
                 </tbody>
             </table>
         );
     }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
     //Using weather because we explicitly use it like that
     // in index.js from reducers
+    console.log(state.weather, "!!!!!!");
     return { weather: state.weather };
 }
 
